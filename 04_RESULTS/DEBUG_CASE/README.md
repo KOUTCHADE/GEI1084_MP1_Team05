@@ -163,14 +163,13 @@ when "10" =>
 
 Vérifiée en appliquant les corrections une par une :
 
-| Version | B +1 (attendu 0x0C) | B −4 (attendu 0x04) | Simulateur |
-|---|---|---|---|
-| Code d'origine (T1) | 0x04 ❌ | 0x03FFFFF0 ❌ | Vivado |
-| Correction 1 seule (T2) | 0x0C ✅ | 0x04000004 ❌ | Vivado |
-| Correction 2 seule | 0x04 ❌ | 0xFFFFFFF0 ❌ | GHDL (vérification complémentaire) |
-| Les deux corrections (T3) | 0x0C ✅ | 0x04 ✅ | Vivado |
+| Version | B +1 (attendu 0x0C) | B −4 (attendu 0x04) |
+|---|---|---|
+| Code d'origine (T1) | 0x04 ❌ | 0x03FFFFF0 ❌ |
+| Correction 1 seule (T2) | 0x0C ✅ | 0x04000004 ❌ |
+| Les deux corrections (T3) | 0x0C ✅ | 0x04 ✅ |
 
-Chaque correction répare un seul des deux défauts : les deux sont nécessaires.
+La correction 1 seule répare le saut vers l'avant mais pas le saut vers l'arrière : les deux corrections sont nécessaires.
 
 ---
 
