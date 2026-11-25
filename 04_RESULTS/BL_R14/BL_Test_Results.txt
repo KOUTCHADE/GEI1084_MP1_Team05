@@ -1,0 +1,30 @@
+
+****** xsim v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/bl_r14_snapshot/xsim_script.tcl
+# xsim {bl_r14_snapshot} -autoloadwcfg -tclbatch {run_xsim.tcl}
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+source run_xsim.tcl
+## run 110 ns
+Note: B1 PASS
+Time: 36 ns  Iteration: 0  Process: /tb_arm_top_bl/stimulus  File: C:/Users/MARC-ARTUR ASSOUMOU/Desktop/mini projet 1/GEI1084_MP1_ETUDIANT_FR_FINAL_A26/projet_1_R14/final_design/tb_arm_top_bl.vhd
+Note: B2 PASS; B3 PASS
+Time: 46 ns  Iteration: 0  Process: /tb_arm_top_bl/stimulus  File: C:/Users/MARC-ARTUR ASSOUMOU/Desktop/mini projet 1/GEI1084_MP1_ETUDIANT_FR_FINAL_A26/projet_1_R14/final_design/tb_arm_top_bl.vhd
+Note: B4 PASS
+Time: 56 ns  Iteration: 0  Process: /tb_arm_top_bl/stimulus  File: C:/Users/MARC-ARTUR ASSOUMOU/Desktop/mini projet 1/GEI1084_MP1_ETUDIANT_FR_FINAL_A26/projet_1_R14/final_design/tb_arm_top_bl.vhd
+Note: B5 PASS
+Time: 76 ns  Iteration: 0  Process: /tb_arm_top_bl/stimulus  File: C:/Users/MARC-ARTUR ASSOUMOU/Desktop/mini projet 1/GEI1084_MP1_ETUDIANT_FR_FINAL_A26/projet_1_R14/final_design/tb_arm_top_bl.vhd
+Note: B6 PASS
+Time: 86 ns  Iteration: 0  Process: /tb_arm_top_bl/stimulus  File: C:/Users/MARC-ARTUR ASSOUMOU/Desktop/mini projet 1/GEI1084_MP1_ETUDIANT_FR_FINAL_A26/projet_1_R14/final_design/tb_arm_top_bl.vhd
+Note: B7 PASS
+Time: 96 ns  Iteration: 0  Process: /tb_arm_top_bl/stimulus  File: C:/Users/MARC-ARTUR ASSOUMOU/Desktop/mini projet 1/GEI1084_MP1_ETUDIANT_FR_FINAL_A26/projet_1_R14/final_design/tb_arm_top_bl.vhd
+Note: B8 PASS
+Time: 106 ns  Iteration: 0  Process: /tb_arm_top_bl/stimulus  File: C:/Users/MARC-ARTUR ASSOUMOU/Desktop/mini projet 1/GEI1084_MP1_ETUDIANT_FR_FINAL_A26/projet_1_R14/final_design/tb_arm_top_bl.vhd
+Note: Tous les tests BL B1-B8 sont passes
+Time: 106 ns  Iteration: 0  Process: /tb_arm_top_bl/stimulus  File: C:/Users/MARC-ARTUR ASSOUMOU/Desktop/mini projet 1/GEI1084_MP1_ETUDIANT_FR_FINAL_A26/projet_1_R14/final_design/tb_arm_top_bl.vhd
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Nov 24 16:14:29 2026...
