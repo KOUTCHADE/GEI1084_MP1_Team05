@@ -1,15 +1,16 @@
 # DEBUG_CASE — Défaut du chemin de branchement B (Lab 4 de base)
 
 Diagnostic obligatoire (guide MP1, section 8.6.1).
-Ce dossier contient la **reproduction du défaut avant correction** (tâche T1).
+Ce dossier contient la chaîne complète du diagnostic : **symptôme → hypothèses → preuve → causes → corrections → retest → régression**.
 
 | Élément | Valeur |
 |---|---|
 | Version testée | `main`, commit `9a11a72`, dossier `02_HDL/baseline_lab4/` |
-| Outil | Vivado 2022.2, simulation comportementale, VHDL-2008 |
+| Outils | Vivado 2022.2 (T1) et Vivado 2017.4 (T2, T3, T4), simulation comportementale, VHDL-2008 |
 | Composant | `xc7z007sclg225-2` |
-| Date de la reproduction | 2026-11-21 |
+| Dates | Reproduction : 2026-11-21 — Corrections, retest et régression : 2026-11-23 |
 | Branche de travail | `feature/bl` |
+| Fichiers corrigés | `02_HDL/optional_extensions/BL/register_file.vhd` et `02_HDL/optional_extensions/BL/extend.vhd` |
 
 ---
 
@@ -160,14 +161,16 @@ when "10" =>
 
 ### Indépendance des deux défauts
 
-Vérifiée en appliquant chaque correction séparément :
+Vérifiée en appliquant les corrections une par une :
 
-| Version | B +1 (attendu 0x0C) | B −4 (attendu 0x04) |
-|---|---|---|
-| Code d'origine | 0x04 | 0x03FFFFF0 |
-| Correction 1 seule | 0x0C ✅ | 0x04000004 ❌ |
-| Correction 2 seule | 0x04 ❌ | 0xFFFFFFF0 ❌ |
-| Les deux corrections | 0x0C ✅ | 0x04 ✅ |
+| Version | B +1 (attendu 0x0C) | B −4 (attendu 0x04) | Simulateur |
+|---|---|---|---|
+| Code d'origine (T1) | 0x04 ❌ | 0x03FFFFF0 ❌ | Vivado |
+| Correction 1 seule (T2) | 0x0C ✅ | 0x04000004 ❌ | Vivado |
+| Correction 2 seule | 0x04 ❌ | 0xFFFFFFF0 ❌ | GHDL (vérification complémentaire) |
+| Les deux corrections (T3) | 0x0C ✅ | 0x04 ✅ | Vivado |
+
+Chaque correction répare un seul des deux défauts : les deux sont nécessaires.
 
 ---
 
@@ -179,14 +182,73 @@ Vérifiée en appliquant chaque correction séparément :
 
 ---
 
-## 7. Suite du diagnostic (à compléter)
+## 7. Corrections, retest et régression
 
-| Étape | Tâche | Statut |
+### 7.1 Correction 1 — `register_file.vhd` (T2)
+
+Lignes 47–50, lecture de R15 sur les **deux** ports :
+
+```vhdl
+RD1 <= R15 when RA1 = "1111" else
+       RAM(to_integer(unsigned(RA1)));
+RD2 <= R15 when RA2 = "1111" else
+       RAM(to_integer(unsigned(RA2)));
+```
+
+- Une lecture à l'adresse 15 renvoie l'entrée `R15` (PC + 8) au lieu de `RAM(15)`.
+- Les deux ports sont corrigés : en ARM, toute lecture de R15 donne PC + 8, quel que soit le port.
+- L'écriture n'est pas modifiée. Aucun port n'est ajouté ni modifié.
+
+**Résultat T2** (`T2_console.txt`, `T2_waveform.png`) : 1 PASS, 3 FAIL.
+
+| Cycle | SrcA_internal | ExtImm_internal | ALUResult | Verdict |
+|---|---|---|---|---|
+| 1 (B +1) | **00000008** | 00000004 | 0000000C | PASS |
+| 2 (B −4) | **00000014** | 03FFFFF0 | 04000004 | FAIL (défaut 2) |
+
+La base de la cible vaut maintenant PC + 8. Le déplacement négatif reste faux.
+
+### 7.2 Correction 2 — `extend.vhd` (T3)
+
+Ligne 33, extension de signe pour ImmSrc = 10 :
+
+```vhdl
+ExtImm <= (31 downto 26 => Instr(23)) &
+          Instr(23 downto 0) & "00";
+```
+
+- Les 6 bits de poids fort recopient le bit de signe `Instr(23)`.
+- Les cas ImmSrc = 00 et 01 ne sont pas modifiés.
+
+### 7.3 Retest (T3) — `T3_console.txt`, `T3_waveform.png`
+
+**4 cycles sur 4 PASS — « CHEMIN DE BRANCHEMENT CONFORME ».**
+
+| Cycle | PC | Instr | SrcA_internal | ExtImm_internal | ALUResult |
+|---|---|---|---|---|---|
+| 1 | 0x00 | EA000001 | 00000008 | 00000004 | **0000000C** |
+| 2 | 0x0C | EAFFFFFC | 00000014 | **FFFFFFF0** | **00000004** |
+| 3 | 0x04 | E2801011 | 00000000 | 00000011 | 00000011 |
+| 4 | 0x08 | E2802022 | 00000000 | 00000022 | 00000022 |
+
+Le PC suit le chemin attendu : 0x00 → 0x0C → 0x04 → 0x08.
+
+### 7.4 Régression (T4) — `T4_regression_lab4.png`
+
+Programme d'origine du Lab 4 (20 instructions) et testbench d'origine `tb_arm_top`, avec les deux corrections :
+
+**« Nombre total d'erreurs : 0 — SIMULATION CONFORME : 20 tests ».**
+
+Les 20 instructions du Lab 4 ne lisent jamais R15 et n'utilisent pas ImmSrc = 10 : les corrections ne modifient pas leur comportement.
+
+### 7.5 Bilan
+
+| Étape | Tâche | Résultat |
 |---|---|---|
-| Correction 1 | T2 — lire l'entrée `R15` quand l'adresse vaut `1111` | À faire |
-| Correction 2 | T3 — étendre le signe de `Instr(23)` pour ImmSrc = 10 | À faire |
-| Retest | Relancer `tb_t1_branch` : attendu 4/4 PASS | À faire |
-| Régression | Relancer `tb_arm_top` (20 tests du Lab 4) : attendu 20/20 | À faire |
+| Symptôme + preuve | T1 | 4/4 FAIL, causes identifiées |
+| Correction 1 | T2 | Base PC + 8 réparée (1/4 PASS) |
+| Correction 2 + retest | T3 | 4/4 PASS |
+| Régression | T4 | 20/20 |
 
 ---
 
@@ -216,5 +278,11 @@ Vérifiée en appliquant chaque correction séparément :
 |---|---|
 | `README.md` | Ce document |
 | `imem.vhd` | `imem` de la base avec le programme de test T1 (seul le ROM change) |
-| `T1_console_avant_correction.txt` | Sortie console Vivado de la simulation |
-| `T1_waveform_avant_correction.png` | Forme d'onde Vivado (8 signaux, 0–55 ns) |
+| `tb_t1_branch_behav.wcfg` | Configuration de la forme d'onde Vivado (signaux affichés) |
+| `T1_console_avant_correction.txt` | Console Vivado avant correction (4 FAIL) |
+| `T1_waveform_avant_correction.png` | Forme d'onde avant correction |
+| `T2_console.txt` | Console après la correction 1 seule (1 PASS, 3 FAIL) |
+| `T2_waveform.png` | Forme d'onde après la correction 1 seule |
+| `T3_console.txt` | Console après les deux corrections (4 PASS) |
+| `T3_waveform.png` | Forme d'onde après les deux corrections |
+| `T4_regression_lab4.png` | Régression du Lab 4 avec les deux corrections (20/20) |

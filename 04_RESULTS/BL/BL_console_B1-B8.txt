@@ -1,0 +1,64 @@
+Note: BL cycle 1 [setup] : PASS | PC=00000000 Instr=E280E0AB ALUResult=000000AB PCSrc='0' RegWrite='1'
+Time: 25 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 2 [B1   ] : PASS | PC=00000004 Instr=EA000000 ALUResult=0000000C PCSrc='1' RegWrite='0'
+Time: 35 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 3 [B1   ] : PASS | PC=0000000C Instr=E28E5000 ALUResult=000000AB PCSrc='0' RegWrite='1'
+Time: 45 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 4 [setup] : PASS | PC=00000010 Instr=E1500000 ALUResult=00000000 PCSrc='0' RegWrite='0'
+Time: 55 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 5 [B6   ] : PASS | PC=00000014 Instr=1B000004 ALUResult=0000002C PCSrc='0' RegWrite='0'
+Time: 65 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 6 [B6   ] : PASS | PC=00000018 Instr=E28E5000 ALUResult=000000AB PCSrc='0' RegWrite='1'
+Time: 75 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 7 [setup] : PASS | PC=0000001C Instr=E2802002 ALUResult=00000002 PCSrc='0' RegWrite='1'
+Time: 85 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 8 [B5   ] : PASS | PC=00000020 Instr=0B000002 ALUResult=00000030 PCSrc='1' RegWrite='1'
+Time: 95 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 9 [B5   ] : PASS | PC=00000030 Instr=E28E5000 ALUResult=00000024 PCSrc='0' RegWrite='1'
+Time: 105 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 10 [B7   ] : PASS | PC=00000034 Instr=E2806066 ALUResult=00000066 PCSrc='0' RegWrite='1'
+Time: 115 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 11 [B7   ] : PASS | PC=00000038 Instr=E2867000 ALUResult=00000066 PCSrc='0' RegWrite='1'
+Time: 125 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 12 [B8   ] : PASS | PC=0000003C Instr=E28E5000 ALUResult=00000024 PCSrc='0' RegWrite='1'
+Time: 135 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 13 [B2   ] : PASS | PC=00000040 Instr=EB000001 ALUResult=0000004C PCSrc='1' RegWrite='1'
+Time: 145 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 14 [B2   ] : PASS | PC=0000004C Instr=E28E5000 ALUResult=00000044 PCSrc='0' RegWrite='1'
+Time: 155 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 15 [setup] : PASS | PC=00000050 Instr=EA000001 ALUResult=0000005C PCSrc='1' RegWrite='0'
+Time: 165 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 16 [B4   ] : PASS | PC=0000005C Instr=EBFFFFFC ALUResult=00000054 PCSrc='1' RegWrite='1'
+Time: 175 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 17 [B4   ] : PASS | PC=00000054 Instr=E28E5000 ALUResult=00000060 PCSrc='0' RegWrite='1'
+Time: 185 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 18 [setup] : PASS | PC=00000058 Instr=EA000002 ALUResult=00000068 PCSrc='1' RegWrite='0'
+Time: 195 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL cycle 19 [setup] : PASS | PC=00000068 Instr=EAFFFFFE ALUResult=00000068 PCSrc='1' RegWrite='0'
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: ----------------------------------
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: B1 : PASS
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: B2 : PASS
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: B3 : PASS (meme BL que B5, a l'adresse 0x20)
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: B4 : PASS
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: B5 : PASS
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: B6 : PASS
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: B7 : PASS
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: B8 : PASS
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: ----------------------------------
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL : cycles en echec = 0 / 19
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: BL : SIMULATION CONFORME (B1-B8)
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd
+Note: ----------------------------------
+Time: 205 ns  Iteration: 0  Process: /tb_bl/stimulus  File: C:/Users/kaca2232/Downloads/BL_repro/tb_bl.vhd

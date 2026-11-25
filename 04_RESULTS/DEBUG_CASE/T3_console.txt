@@ -1,0 +1,17 @@
+Time resolution is 1 ps
+Note: T1 cycle 1 : PASS | PC=00000000 Instr=EA000001 ALUResult=0000000C PCSrc='1'
+Time: 25 ns  Iteration: 0  Process: /tb_t1_branch/stimulus  File: C:/Users/kaca2232/Downloads/T1_repro/tb_t1_branch.vhd
+Note: T1 cycle 2 : PASS | PC=0000000C Instr=EAFFFFFC ALUResult=00000004 PCSrc='1'
+Time: 35 ns  Iteration: 0  Process: /tb_t1_branch/stimulus  File: C:/Users/kaca2232/Downloads/T1_repro/tb_t1_branch.vhd
+Note: T1 cycle 3 : PASS | PC=00000004 Instr=E2801011 ALUResult=00000011 PCSrc='0'
+Time: 45 ns  Iteration: 0  Process: /tb_t1_branch/stimulus  File: C:/Users/kaca2232/Downloads/T1_repro/tb_t1_branch.vhd
+Note: T1 cycle 4 : PASS | PC=00000008 Instr=E2802022 ALUResult=00000022 PCSrc='0'
+Time: 55 ns  Iteration: 0  Process: /tb_t1_branch/stimulus  File: C:/Users/kaca2232/Downloads/T1_repro/tb_t1_branch.vhd
+Note: ----------------------------------
+Time: 55 ns  Iteration: 0  Process: /tb_t1_branch/stimulus  File: C:/Users/kaca2232/Downloads/T1_repro/tb_t1_branch.vhd
+Note: T1 : cycles en echec = 0 / 4
+Time: 55 ns  Iteration: 0  Process: /tb_t1_branch/stimulus  File: C:/Users/kaca2232/Downloads/T1_repro/tb_t1_branch.vhd
+Note: T1 : CHEMIN DE BRANCHEMENT CONFORME
+Time: 55 ns  Iteration: 0  Process: /tb_t1_branch/stimulus  File: C:/Users/kaca2232/Downloads/T1_repro/tb_t1_branch.vhd
+Note: ----------------------------------
+Time: 55 ns  Iteration: 0  Process: /tb_t1_branch/stimulus  File: C:/Users/kaca2232/Downloads/T1_repro/tb_t1_branch.vhd

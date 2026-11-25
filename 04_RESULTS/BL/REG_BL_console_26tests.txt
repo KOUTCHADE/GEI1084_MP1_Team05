@@ -1,0 +1,59 @@
+Note: Test 1 : Conforme
+Time: 23 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 2 : Conforme
+Time: 33 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 3 : Conforme
+Time: 43 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 4 : Conforme
+Time: 53 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 5 : Conforme
+Time: 63 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 6 : Conforme
+Time: 73 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 7 : Conforme
+Time: 83 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 8 : Conforme
+Time: 93 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 9 : Conforme
+Time: 103 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 10 : Conforme
+Time: 113 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 11 : Conforme
+Time: 123 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 12 : Conforme
+Time: 133 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 13 : Conforme
+Time: 143 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 14 : Conforme
+Time: 153 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 15 : Conforme
+Time: 163 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 16 : Conforme
+Time: 173 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 17 : Conforme
+Time: 183 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 18 : Conforme
+Time: 193 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 19 : Conforme
+Time: 203 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Test 20 : Conforme
+Time: 213 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: C1 : Conforme
+Time: 226 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: C2 : Conforme
+Time: 256 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: C3 : Conforme
+Time: 266 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: C4 : Conforme
+Time: 286 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: C6 : Conforme
+Time: 306 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: C7 : Conforme
+Time: 336 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: ----------------------------------
+Time: 336 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Nombre de tests : 26
+Time: 336 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: Nombre total d'erreurs : 0
+Time: 336 ns  Iteration: 0  Process: /tb_arm_top/stimulus  File: C:/Users/kaca2232/Downloads/REG_BL_repro/tb_arm_top.vhd
+Note: SIMULATION CONFORME : 26 tests
