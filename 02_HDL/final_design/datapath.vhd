@@ -58,6 +58,12 @@ signal RA2_internal       : STD_LOGIC_VECTOR(3 downto 0);
 signal A3_internal        : STD_LOGIC_VECTOR(3 downto 0);
 signal WD3_internal       : STD_LOGIC_VECTOR(31 downto 0);
 
+-- MP1 SHIFT : signaux du decodeur de decalage et du shifter
+signal ShiftEnable_internal  : STD_LOGIC;  -- informatif (non utilise : LSL #0 = aucun decalage)
+signal ShiftControl_internal : STD_LOGIC_VECTOR(1 downto 0);  -- 00 = LSL, 01 = LSR
+signal ShiftAmount_internal  : STD_LOGIC_VECTOR(4 downto 0);  -- shamt = Instr(11:7)
+signal ShiftedRD2_internal   : STD_LOGIC_VECTOR(31 downto 0); -- RD2 apres decalage
+
 begin
     
 -- Selection des adresses de lecture
@@ -100,8 +106,28 @@ U_EXT : entity work.extend
 -- Premiere entree de l'ALU
 SrcA_internal <= RD1_internal;
 
+-- MP1 SHIFT : decodage du decalage (Instr(25)=0, Instr(4)=0, ADD/SUB/AND/ORR)
+-- Hors de ces cas, le decodeur sort LSL #0 : RD2 traverse le shifter sans changement.
+U_SHIFT_DEC : entity work.shift_decoder
+    port map (
+        Instr        => Instr,
+        ShiftEnable  => ShiftEnable_internal,
+        ShiftControl => ShiftControl_internal,
+        ShiftAmount  => ShiftAmount_internal
+    );
+
+-- MP1 SHIFT : shifter combinatoire insere entre RD2 et le multiplexeur ALUSrc
+U_SHIFTER : entity work.shifter
+    port map (
+        RD2        => RD2_internal,
+        shamt      => ShiftAmount_internal,
+        ShiftType  => ShiftControl_internal,
+        ShiftedRD2 => ShiftedRD2_internal
+    );
+
 -- Multiplexeur ALUSrc
-SrcB_internal <= RD2_internal when ALUSrc = '0'
+-- MP1 SHIFT : l'entree registre est maintenant RD2 decale; ExtImm est inchange.
+SrcB_internal <= ShiftedRD2_internal when ALUSrc = '0'
                  else ExtImm_internal;
                  
 SrcA <= SrcA_internal;
