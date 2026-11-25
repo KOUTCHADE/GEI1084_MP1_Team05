@@ -1,0 +1,287 @@
+CONTENU DU FICHIER SHIFT_DECODER.VHD
+
+
+	library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity shift_decoder is
+    Port (
+        Instr        : in  STD_LOGIC_VECTOR(31 downto 0);
+        ShiftEnable  : out STD_LOGIC;
+        ShiftControl : out STD_LOGIC_VECTOR(1 downto 0);
+        ShiftAmount  : out STD_LOGIC_VECTOR(4 downto 0)
+    );
+end shift_decoder;
+
+architecture Behavioral of shift_decoder is
+begin
+
+    process(Instr)
+    begin
+
+        -- Valeurs par defaut : aucun decalage
+        ShiftEnable  <= '0';
+        ShiftControl <= "00";
+        ShiftAmount  <= "00000";
+
+        -- Data Processing avec operande registre
+        if Instr(27 downto 26) = "00" and
+           Instr(25) = '0' and
+           Instr(4) = '0' then
+
+            -- Verification de l'operation principale
+            case Instr(24 downto 21) is
+
+                -- ADD, SUB, AND, ORR
+                when "0100" | "0010" |
+                     "0000" | "1100" =>
+
+                    case Instr(6 downto 5) is
+
+                        when "00" =>
+                            -- Logical Shift Left
+                            ShiftEnable  <= '1';
+                            ShiftControl <= "00";
+                            ShiftAmount  <= Instr(11 downto 7);
+
+                        when "01" =>
+                            -- Logical Shift Right
+                            ShiftEnable  <= '1';
+                            ShiftControl <= "01";
+                            ShiftAmount  <= Instr(11 downto 7);
+
+                        when others =>
+                            -- ASR et ROR hors portee
+                            null;
+
+                    end case;
+
+                when others =>
+                    -- Operation non prise en charge
+                    null;
+
+            end case;
+
+        end if;
+
+    end process;
+
+end Behavioral;
+
+
+CONTENU DU FICHIER TB_SHIFT_DECODER.VHD
+
+
+
+
+		library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity tb_shift_decoder is
+end tb_shift_decoder;
+
+architecture Behavioral of tb_shift_decoder is
+
+    -- Entree du decodeur
+    signal Instr : STD_LOGIC_VECTOR(31 downto 0)
+                   := (others => '0');
+
+    -- Sorties du decodeur
+    signal ShiftEnable  : STD_LOGIC;
+    signal ShiftControl : STD_LOGIC_VECTOR(1 downto 0);
+    signal ShiftAmount  : STD_LOGIC_VECTOR(4 downto 0);
+
+begin
+
+    --------------------------------------------------
+    -- Instanciation du decodeur SHIFT
+    --------------------------------------------------
+    DUT : entity work.shift_decoder
+        port map (
+            Instr        => Instr,
+            ShiftEnable  => ShiftEnable,
+            ShiftControl => ShiftControl,
+            ShiftAmount  => ShiftAmount
+        );
+
+    --------------------------------------------------
+    -- Stimulus et verification
+    --------------------------------------------------
+    stimulus : process
+
+        variable errors : integer := 0;
+        variable test_count : integer := 0;
+
+        procedure check_test (
+            constant test_name : in string;
+            constant instruction : in STD_LOGIC_VECTOR(31 downto 0);
+            constant expected_enable : in STD_LOGIC;
+            constant expected_control : in STD_LOGIC_VECTOR(1 downto 0);
+            constant expected_amount : in STD_LOGIC_VECTOR(4 downto 0)
+        ) is
+        begin
+
+            Instr <= instruction;
+
+            wait for 10 ns;
+
+            test_count := test_count + 1;
+
+            if ShiftEnable = expected_enable and
+               ShiftControl = expected_control and
+               ShiftAmount = expected_amount then
+
+                report test_name & " : PASS"
+                    severity note;
+
+            else
+
+                errors := errors + 1;
+
+                report test_name & " : FAIL"
+                    severity error;
+
+            end if;
+
+        end procedure;
+
+    begin
+
+        --------------------------------------------------
+        -- D1 : ADD sans decalage (LSL #0)
+        --------------------------------------------------
+        check_test(
+            "D1 - ADD LSL #0",
+            x"E0821003",
+            '1', "00", "00000"
+        );
+
+        --------------------------------------------------
+        -- D2 : ADD avec LSL #1
+        --------------------------------------------------
+        check_test(
+            "D2 - ADD LSL #1",
+            x"E0821083",
+            '1', "00", "00001"
+        );
+
+        --------------------------------------------------
+        -- D3 : ADD avec LSL #4
+        --------------------------------------------------
+        check_test(
+            "D3 - ADD LSL #4",
+            x"E0821203",
+            '1', "00", "00100"
+        );
+
+        --------------------------------------------------
+        -- D4 : SUB avec LSR #3
+        --------------------------------------------------
+        check_test(
+            "D4 - SUB LSR #3",
+            x"E04251A4",
+            '1', "01", "00011"
+        );
+
+        --------------------------------------------------
+        -- D5 : AND avec LSL #2
+        --------------------------------------------------
+        check_test(
+            "D5 - AND LSL #2",
+            x"E0021103",
+            '1', "00", "00010"
+        );
+
+        --------------------------------------------------
+        -- D6 : ORR avec LSR #2
+        --------------------------------------------------
+        check_test(
+            "D6 - ORR LSR #2",
+            x"E1821123",
+            '1', "01", "00010"
+        );
+
+        --------------------------------------------------
+        -- D7 : ADD avec LSL #31
+        --------------------------------------------------
+        check_test(
+            "D7 - ADD LSL #31",
+            x"E0821F83",
+            '1', "00", "11111"
+        );
+
+        --------------------------------------------------
+        -- D8 : ADD avec operande immediat
+        --------------------------------------------------
+        check_test(
+            "D8 - ADD Immediate",
+            x"E2821005",
+            '0', "00", "00000"
+        );
+
+        --------------------------------------------------
+        -- D9 : STR
+        --------------------------------------------------
+        check_test(
+            "D9 - STR",
+            x"E5821004",
+            '0', "00", "00000"
+        );
+
+        --------------------------------------------------
+        -- D10 : ASR non pris en charge
+        --------------------------------------------------
+        check_test(
+            "D10 - ASR",
+            x"E0821143",
+            '0', "00", "00000"
+        );
+
+        --------------------------------------------------
+        -- D11 : Decalage par registre non pris en charge
+        --------------------------------------------------
+        check_test(
+            "D11 - Register Shift",
+            x"E0821413",
+            '0', "00", "00000"
+        );
+
+        --------------------------------------------------
+        -- D12 : LDR
+        --------------------------------------------------
+        check_test(
+            "D12 - LDR",
+            x"E5921004",
+            '0', "00", "00000"
+        );
+
+        --------------------------------------------------
+        -- Bilan final
+        --------------------------------------------------
+        report "----------------------------------"
+            severity note;
+
+        report "Nombre de tests : " &
+               integer'image(test_count)
+            severity note;
+
+        report "Nombre total d'erreurs : " &
+               integer'image(errors)
+            severity note;
+
+        if errors = 0 then
+            report "DECODAGE SHIFT CONFORME"
+                severity note;
+        else
+            report "DECODAGE SHIFT NON CONFORME"
+                severity warning;
+        end if;
+
+        report "----------------------------------"
+            severity note;
+
+        wait;
+
+    end process;
+
+end Behavioral;

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_arm_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_arm_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="197.643 ns"></ZoomEndTime>
+      <Cursor1Time time="26.472 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="135"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/tb_arm_top/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/Instr" type="array">
+      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/PCSrc" type="logic">
+      <obj_property name="ElementShortName">PCSrc</obj_property>
+      <obj_property name="ObjectShortName">PCSrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/ALUResult" type="array">
+      <obj_property name="ElementShortName">ALUResult[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUResult[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/WriteData" type="array">
+      <obj_property name="ElementShortName">WriteData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/DUT/ALUSrc_s" type="logic">
+      <obj_property name="ElementShortName">ALUSrc_s</obj_property>
+      <obj_property name="ObjectShortName">ALUSrc_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/DUT/ShiftEnable_s" type="logic">
+      <obj_property name="ElementShortName">ShiftEnable_s</obj_property>
+      <obj_property name="ObjectShortName">ShiftEnable_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/DUT/ShiftControl_s" type="array">
+      <obj_property name="ElementShortName">ShiftControl_s[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ShiftControl_s[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/DUT/ShiftAmount_s" type="array">
+      <obj_property name="ElementShortName">ShiftAmount_s[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ShiftAmount_s[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/DUT/RegWrite_s" type="logic">
+      <obj_property name="ElementShortName">RegWrite_s</obj_property>
+      <obj_property name="ObjectShortName">RegWrite_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_arm_top/DUT/ALUControl_s" type="array">
+      <obj_property name="ElementShortName">ALUControl_s[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUControl_s[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>
