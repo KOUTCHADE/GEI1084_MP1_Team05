@@ -4,7 +4,7 @@
 
 ## Déclaration
 
-- [] Aucune IAg n'a été utilisée pour le mini-projet 1.
+- [ ] Aucune IAg n'a été utilisée pour le mini-projet 1.
 - [X] Une IAg a été utilisée uniquement dans la portée du niveau 1 UQTR avant la production.
 
 ### Utilisation
