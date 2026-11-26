@@ -9,7 +9,7 @@
 
 ### Utilisation
 
-| Outil: chatgpt   | Activité: Comprehension et guide pour la definition de certains concepts | Ce qui a été produit ou modifier: la comprehension du shift et de a quoi il sert  | Sources originales : laboratoire 4      | Vérification indépendante = les | Membre responsable= André kevin| 
+| Outil: chatgpt   | Activité: Comprehension et guide pour la definition de certains concepts | Ce qui a été produit ou modifier: la comprehension du shift et de a quoi il sert  | Sources originales : laboratoire 4 | Vérification indépendante| Membre responsable= Koutchadé, Bolarinwa Rodrigue Fidèle| 
 
 | Outil : Chatgpt  | Activité : pour une meilleur comprehension du fonctionnement du processeur ARM|
 ### Ce qui n'a pas été produit par l'IA
