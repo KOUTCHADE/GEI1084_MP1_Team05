@@ -1,0 +1,29 @@
+# GHDL 4.1.0 : regression apres ajout du shifter
+## BL (03_TESTBENCH/BL)
+----------------------------------
+B1 : PASS
+B2 : PASS
+B3 : PASS (meme BL que B5, a l'adresse 0x20)
+B4 : PASS
+B5 : PASS
+B6 : PASS
+B7 : PASS
+B8 : PASS
+----------------------------------
+BL : cycles en echec = 0 / 19
+BL : SIMULATION CONFORME (B1-B8)
+----------------------------------
+simulation stopped @205ns
+## Lab 4 + CMP (03_TESTBENCH/CMP, final_design/imem.vhd)
+C1 : Conforme
+C2 : Conforme
+C3 : Conforme
+C4 : Conforme
+C6 : Conforme
+C7 : Conforme
+----------------------------------
+Nombre de tests : 26
+Nombre total d'erreurs : 0
+SIMULATION CONFORME : 26 tests
+----------------------------------
+ghdl:info: simulation stopped by --stop-time @2us
