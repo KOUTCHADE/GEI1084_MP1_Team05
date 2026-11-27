@@ -1,33 +1,33 @@
 ﻿TestID,Purpose,InitialState,InstructionSequence,Expected,Observed,Status,EvidencePath
-C1,CMP equality / Z,,,,,,
-C2,CMP positive subtraction,,,,,,
-C3,CMP negative subtraction,,,,,,
-C4,CMP carry/borrow-sensitive,,,,,,
-C5,CMP signed-overflow-sensitive,,,,,,
-C6,CMP no register write,,,,,,
-C7,CMP flags drive conditional execution,,,,,,
-S1,LSL #0,,,,,,
-S2,LSL #1,,,,,,
-S3,multi-bit LSL,,,,,,
-S4,ordinary LSR,,,,,,
-S5,LSR MSB=1 zero fill,,,,,,
-S6,shift-to-zero,,,,,,
-S7,AND shifted,,,,,,
-S8,ORR shifted,,,,,,
-S9,unshifted register regression,,,,,,
-S10,immediate-path regression,,,,,,
-B1,ordinary B / R14 unchanged,,,,,,
-B2,forward BL,,,,,,
-B3,PC+4 vs PC+8,,,,,,
-B4,backward BL,,,,,,
-B5,conditional BL true,,,,,,
-B6,conditional BL false / R14 unchanged,,,,,,
-B7,normal register write after BL,,,,,,
-B8,LR persistence,,,,,,
-R1,baseline arithmetic register,,,,,,
-R2,baseline logical register,,,,,,
-R3,baseline immediate,,,,,,
-R4,LDR,,,,,,
-R5,STR,,,,,,
-R6,baseline conditional execution,,,,,,
-R7,ordinary branch,,,,,,
+C1,CMP equality / Z,R2=0xA (fin du programme Lab 4),"0x50 CMP R2, R2",ALU=0x00000000; NZCV=0110; RegWrite=0,ALU=0x00000000; NZCV=0110; RegWrite=0,PASS,04_RESULTS/CMP/C1_Chronogramme.png; 04_RESULTS/REGRESSION/CMP_console.txt
+C2,CMP positive subtraction,R1=9; R2=4,"0x5C CMP R1, R2",ALU=0x00000005; NZCV=0010; RegWrite=0,ALU=0x00000005; NZCV=0010; RegWrite=0,PASS,04_RESULTS/CMP/C2_Chronogramme.png
+C3,CMP negative subtraction,R1=9; R2=4,"0x60 CMP R2, R1",ALU=0xFFFFFFFB; NZCV=1000 (C=0: emprunt); RegWrite=0,ALU=0xFFFFFFFB; NZCV=1000,PASS,04_RESULTS/CMP/C3_Chronogramme.png
+C4,CMP carry/borrow-sensitive,R5=0xFFFFFFFF; R2=4,"0x68 CMP R5, R2",ALU=0xFFFFFFFB; NZCV=1010 (C=1: pas d'emprunt en non signe),ALU=0xFFFFFFFB; NZCV=1010,PASS,04_RESULTS/CMP/C4_Chronogramme.png
+C5,CMP signed-overflow-sensitive,R8=0x80000000; R2=1,"0x5C CMP R8, R2; 0x60 ADDVS R3,R0,#0x55; 0x64 ADDMI R3,R0,#0xAA",ALU=0x7FFFFFFF; NZCV=0011 (V=1 alors que N=0); ADDVS execute; ADDMI ignore,ALU=0x7FFFFFFF; NZCV=0011; ADDVS RegWrite=1; ADDMI RegWrite=0,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png; 04_RESULTS/SHIFT/GHDL_console_S1-S10_C5.txt
+C6,CMP no register write,"R3=42 (0x2A, valeur distinctive); R1=9; R2=4","0x6C ADD R3,R0,#42; 0x70 CMP R1, R2",RegWrite=0 pendant CMP; R3 reste 42,RegWrite=0; R3=42 (relu par C7: 42+1=43),PASS,04_RESULTS/CMP/C6_Chronogramme.png
+C7,CMP flags drive conditional execution,R1=9; R2=4; R3=42,"0x74 CMP R1,R2; 0x78 ADDEQ R3,R3,#1; 0x7C ADDNE R3,R3,#1",Z=0: ADDEQ ignore (RegWrite=0); ADDNE execute; R3=43,ADDEQ RegWrite=0; ADDNE ALU=0x2B RegWrite=1,PASS,04_RESULTS/CMP/C7_Chronogramme.png
+S1,LSL #0,R1=0x12345678,"0x1C ADD R3, R0, R1, LSL #0",R3=0x12345678,ALU=0x12345678,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S2,LSL #1,R4=3,"0x24 ADD R5, R0, R4, LSL #1",R5=0x00000006,ALU=0x00000006,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S3,multi-bit LSL,"R4=3; R1=0x12, R2=0x34/0x56/0x78","0x28 ADD R5,R0,R4,LSL #4; 0x08/0x10/0x18 ADD R1,R2,R1,LSL #8",R5=0x30; R1=0x1234 puis 0x123456 puis 0x12345678,ALU=0x30; 0x1234; 0x123456; 0x12345678,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S4,ordinary LSR,R6=0x20,"0x30 ADD R7, R0, R6, LSR #1",R7=0x00000010,ALU=0x00000010,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S5,LSR MSB=1 zero fill,"R8=0x80000000 (ADD R8,R0,R8,LSL #31)","0x3C ADD R9, R0, R8, LSR #1",R9=0x40000000 (et non 0xC0000000),ALU=0x40000000,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S6,shift-to-zero,R4=3,"0x40 ADD R10, R0, R4, LSR #2",R10=0x00000000,ALU=0x00000000,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S7,AND shifted,R1=0x12345678; R4=3,"0x44 AND R11, R1, R4, LSL #4",R11=0x12345678 AND 0x30 = 0x30,ALU=0x00000030,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S8,ORR shifted,R6=0x20; R4=3,"0x48 ORR R12, R6, R4, LSL #8",R12=0x20 OR 0x300 = 0x320,ALU=0x00000320,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S9,unshifted register regression,R4=3; R6=0x20,"0x50 ADD R13, R4, R6",R13=0x23,ALU=0x00000023,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+S10,immediate-path regression,R4=3,"0x54 ADD R14, R4, #0x85",R14=0x88 (ExtImm atteint l'ALU sans passer par le shifter),ALU=0x00000088,PASS,04_RESULTS/SHIFT/Vivado_SHIFT_S1-S10_C5.png
+B1,ordinary B / R14 unchanged,R14=0xAB,"0x04 B 0x0C; 0x0C ADD R5,R14,#0",PC suivant=0x0C; RegWrite=0; R14=0xAB,ALU=0x0C PCSrc=1 RegWrite=0; relecture R14=0xAB,PASS,04_RESULTS/BL/BL_console_B1-B8.txt; 04_RESULTS/BL/Vivado_BL_B1-B8_19sur19_avecSHIFT.png
+B2,forward BL,PC=0x40,0x40 BL 0x4C (imm24=+1),PC suivant=0x48+4=0x4C; R14=0x44,ALU=0x4C PCSrc=1 RegWrite=1; relecture R14=0x44,PASS,04_RESULTS/BL/BL_console_B1-B8.txt
+B3,PC+4 vs PC+8,PC=0x20; Z=1,0x20 BLEQ 0x30,Cible=0x28+8=0x30; R14=0x24,SrcA=0x28 ALU=0x30 WD3=0x24; relecture R14=0x24,PASS,04_RESULTS/BL/BL_B3_B5.png
+B4,backward BL,PC=0x5C,0x5C BL 0x54 (imm24=0xFFFFFC),SignExt*4=-16; cible=0x64-16=0x54; R14=0x60,ALU=0x54 PCSrc=1; relecture R14=0x60,PASS,04_RESULTS/BL/BL_console_B1-B8.txt
+B5,conditional BL true,"Z=1 (CMP R0,R0); R14=0xAB",0x20 BLEQ 0x30,Branchement ET R14=0x24,PCSrc=1 RegWrite=1; relecture R14=0x24,PASS,04_RESULTS/BL/BL_B3_B5.png
+B6,conditional BL false / R14 unchanged,Z=1; R14=0xAB,"0x14 BLNE 0x2C; 0x18 ADD R5,R14,#0",PC suivant=0x18; R14=0xAB,PCSrc=0 RegWrite=0; relecture R14=0xAB,PASS,04_RESULTS/BL/BL_B6.png
+B7,normal register write after BL,R14=0x24,"0x34 ADD R6,R0,#0x66; 0x38 ADD R7,R6,#0",A3=6 (pas 14); R6=0x66,A3=6 WD3=0x66; relecture R6=0x66,PASS,04_RESULTS/BL/BL_console_B1-B8.txt
+B8,LR persistence,R14=0x24 apres BLEQ,"0x34-0x38 (B7) puis 0x3C ADD R5,R14,#0",R14=0x24,relecture R14=0x24,PASS,04_RESULTS/BL/BL_console_B1-B8.txt
+R1,baseline arithmetic register,R5=4; R4=7,"Lab4 0x18 ADD R5, R5, R4",ALU=0x0000000B,ALU=0x0000000B (test 7),PASS,04_RESULTS/REGRESSION/CMP_console.txt; 04_RESULTS/CMP/Vivado_Lab4_CMP_26sur26_avecSHIFT.png
+R2,baseline logical register,R7=3; R2=5 / R3=12; R4=7,"Lab4 0x10 ORR R4,R7,R2; 0x14 AND R5,R3,R4",ORR=0x7; AND=0x4,ALU=0x7 (test 5); 0x4 (test 6),PASS,04_RESULTS/REGRESSION/CMP_console.txt
+R3,baseline immediate,R0=0,"Lab4 0x04 ADD R2, R0, #5",ALU=0x5,ALU=0x5 (test 2); voir aussi S10,PASS,04_RESULTS/REGRESSION/CMP_console.txt
+R4,LDR,R0=0,"Lab4 0x38 LDR R2, [R0, #96]",Adresse=0x60,ALU=0x60 (test 15). Donnee chargee : a confirmer sur chronogramme,PASS,04_RESULTS/REGRESSION/CMP_console.txt
+R5,STR,R3=12; R7=0xFFFFFFFC,"Lab4 0x34 STR R7, [R3, #84]",Adresse=0x60; WriteData=0xFFFFFFFC,ALU=0x60; WriteData=0xFFFFFFFC (test 14),PASS,04_RESULTS/REGRESSION/CMP_console.txt
+R6,baseline conditional execution,"flags de SUBS R8,R7,R2","Lab4 0x2C ADDLT R7, R5, #1",Resultat selon ExpectedData.txt ligne 12 (ALU=0x1),ALU=0x1 (test 12),PASS,04_RESULTS/REGRESSION/CMP_console.txt
+R7,ordinary branch,R14=0xAB,= B1 (reutilisation explicite),PC suivant=0x0C; R14 inchange,PASS (voir B1),PASS,04_RESULTS/BL/BL_console_B1-B8.txt

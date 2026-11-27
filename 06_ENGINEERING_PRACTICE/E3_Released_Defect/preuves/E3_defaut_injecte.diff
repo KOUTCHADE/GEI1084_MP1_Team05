@@ -1,0 +1,27 @@
+--- v1.0.1_corrigee/datapath.vhd
++++ v1.0_defaut_injecte/datapath.vhd
+@@ -57,6 +57,7 @@
+ 
+ signal A3_internal        : STD_LOGIC_VECTOR(3 downto 0);
+ signal WD3_internal       : STD_LOGIC_VECTOR(31 downto 0);
++signal RegWrite_RF : STD_LOGIC;
+ 
+ -- MP1 SHIFT : signaux du decodeur de decalage et du shifter
+ signal ShiftEnable_internal  : STD_LOGIC;  -- informatif (non utilise : LSL #0 = aucun decalage)
+@@ -78,6 +79,7 @@
+ A3_internal <= "1110" when BL = '1'
+                else Instr(15 downto 12);
+ 
++RegWrite_RF <= RegWrite or BL;  -- DEFAUT INJECTE (E3)
+ WD3_internal <= PCPlus4 when BL = '1'
+                 else Result_internal;
+ 
+@@ -85,7 +87,7 @@
+ U_RF : entity work.register_file
+     port map (
+         CLK      => CLK,
+-        RegWrite => RegWrite,
++        RegWrite => RegWrite_RF,
+         RA1      => RA1_internal,
+         RA2      => RA2_internal,
+         A3       => A3_internal,

@@ -1,0 +1,50 @@
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+tb_shift.vhd:149:17:@25ns:(report note): SHIFT cycle 1 [setup] : PASS | PC=00000000 Instr=E2801012 ALUResult=00000012 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@35ns:(report note): SHIFT cycle 2 [setup] : PASS | PC=00000004 Instr=E2802034 ALUResult=00000034 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@45ns:(report note): SHIFT cycle 3 [S3   ] : PASS | PC=00000008 Instr=E0821401 ALUResult=00001234 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@55ns:(report note): SHIFT cycle 4 [setup] : PASS | PC=0000000C Instr=E2802056 ALUResult=00000056 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@65ns:(report note): SHIFT cycle 5 [S3   ] : PASS | PC=00000010 Instr=E0821401 ALUResult=00123456 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@75ns:(report note): SHIFT cycle 6 [setup] : PASS | PC=00000014 Instr=E2802078 ALUResult=00000078 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@85ns:(report note): SHIFT cycle 7 [S3   ] : PASS | PC=00000018 Instr=E0821401 ALUResult=12345678 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@95ns:(report note): SHIFT cycle 8 [S1   ] : PASS | PC=0000001C Instr=E0803001 ALUResult=12345678 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@105ns:(report note): SHIFT cycle 9 [setup] : PASS | PC=00000020 Instr=E2804003 ALUResult=00000003 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@115ns:(report note): SHIFT cycle 10 [S2   ] : PASS | PC=00000024 Instr=E0805084 ALUResult=00000006 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@125ns:(report note): SHIFT cycle 11 [S3   ] : PASS | PC=00000028 Instr=E0805204 ALUResult=00000030 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@135ns:(report note): SHIFT cycle 12 [setup] : PASS | PC=0000002C Instr=E2806020 ALUResult=00000020 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@145ns:(report note): SHIFT cycle 13 [S4   ] : PASS | PC=00000030 Instr=E08070A6 ALUResult=00000010 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@155ns:(report note): SHIFT cycle 14 [setup] : PASS | PC=00000034 Instr=E2808001 ALUResult=00000001 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@165ns:(report note): SHIFT cycle 15 [S5   ] : PASS | PC=00000038 Instr=E0808F88 ALUResult=80000000 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@175ns:(report note): SHIFT cycle 16 [S5   ] : PASS | PC=0000003C Instr=E08090A8 ALUResult=40000000 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@185ns:(report note): SHIFT cycle 17 [S6   ] : PASS | PC=00000040 Instr=E080A124 ALUResult=00000000 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@195ns:(report note): SHIFT cycle 18 [S7   ] : PASS | PC=00000044 Instr=E001B204 ALUResult=00000030 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@205ns:(report note): SHIFT cycle 19 [S8   ] : PASS | PC=00000048 Instr=E186C404 ALUResult=00000320 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@215ns:(report note): SHIFT cycle 20 [SUB  ] : PASS | PC=0000004C Instr=E046D104 ALUResult=00000014 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@225ns:(report note): SHIFT cycle 21 [S9   ] : PASS | PC=00000050 Instr=E084D006 ALUResult=00000023 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@235ns:(report note): SHIFT cycle 22 [S10  ] : PASS | PC=00000054 Instr=E284E085 ALUResult=00000088 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@245ns:(report note): SHIFT cycle 23 [setup] : PASS | PC=00000058 Instr=E2802001 ALUResult=00000001 RegWrite='1' NZCV=0000
+tb_shift.vhd:149:17:@255ns:(report note): SHIFT cycle 24 [C5   ] : PASS | PC=0000005C Instr=E1580002 ALUResult=7FFFFFFF RegWrite='0' NZCV=0000
+tb_shift.vhd:149:17:@265ns:(report note): SHIFT cycle 25 [C5   ] : PASS | PC=00000060 Instr=62803055 ALUResult=00000055 RegWrite='1' NZCV=0011
+tb_shift.vhd:149:17:@275ns:(report note): SHIFT cycle 26 [C5   ] : PASS | PC=00000064 Instr=428030AA ALUResult=000000AA RegWrite='0' NZCV=0011
+tb_shift.vhd:149:17:@285ns:(report note): SHIFT cycle 27 [setup] : PASS | PC=00000068 Instr=EAFFFFFE ALUResult=00000068 RegWrite='0' NZCV=0011
+tb_shift.vhd:175:9:@285ns:(report note): ----------------------------------
+tb_shift.vhd:179:17:@285ns:(report note): S1  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S2  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S3  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S4  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S5  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S6  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S7  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S8  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S9  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): S10 : PASS
+tb_shift.vhd:179:17:@285ns:(report note): C5  : PASS
+tb_shift.vhd:179:17:@285ns:(report note): SUB : PASS
+tb_shift.vhd:185:9:@285ns:(report note): ----------------------------------
+tb_shift.vhd:186:9:@285ns:(report note): SHIFT : cycles en echec = 0 / 27
+tb_shift.vhd:190:13:@285ns:(report note): SHIFT : SIMULATION CONFORME (S1-S10, C5)
+tb_shift.vhd:195:9:@285ns:(report note): ----------------------------------
+simulation stopped @285ns

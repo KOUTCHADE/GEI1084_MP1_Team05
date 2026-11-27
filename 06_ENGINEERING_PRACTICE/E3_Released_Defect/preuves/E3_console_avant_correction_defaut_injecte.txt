@@ -1,0 +1,38 @@
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+../../src/ieee2008/numeric_std-body.vhdl:3036:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+tb_bl.vhd:135:17:@25ns:(report note): BL cycle 1 [setup] : PASS | PC=00000000 Instr=E280E0AB ALUResult=000000AB PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@35ns:(report note): BL cycle 2 [B1   ] : PASS | PC=00000004 Instr=EA000000 ALUResult=0000000C PCSrc='1' RegWrite='0'
+tb_bl.vhd:135:17:@45ns:(report note): BL cycle 3 [B1   ] : PASS | PC=0000000C Instr=E28E5000 ALUResult=000000AB PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@55ns:(report note): BL cycle 4 [setup] : PASS | PC=00000010 Instr=E1500000 ALUResult=00000000 PCSrc='0' RegWrite='0'
+tb_bl.vhd:135:17:@65ns:(report note): BL cycle 5 [B6   ] : PASS | PC=00000014 Instr=1B000004 ALUResult=0000002C PCSrc='0' RegWrite='0'
+tb_bl.vhd:147:17:@75ns:(report error): BL cycle 6 [B6   ] : FAIL | attendu PC=00000018 Instr=E28E5000 ALUResult=000000AB PCSrc='0' RegWrite='1' | observe PC=00000018 Instr=E28E5000 ALUResult=00000018 PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@85ns:(report note): BL cycle 7 [setup] : PASS | PC=0000001C Instr=E2802002 ALUResult=00000002 PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@95ns:(report note): BL cycle 8 [B5   ] : PASS | PC=00000020 Instr=0B000002 ALUResult=00000030 PCSrc='1' RegWrite='1'
+tb_bl.vhd:135:17:@105ns:(report note): BL cycle 9 [B5   ] : PASS | PC=00000030 Instr=E28E5000 ALUResult=00000024 PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@115ns:(report note): BL cycle 10 [B7   ] : PASS | PC=00000034 Instr=E2806066 ALUResult=00000066 PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@125ns:(report note): BL cycle 11 [B7   ] : PASS | PC=00000038 Instr=E2867000 ALUResult=00000066 PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@135ns:(report note): BL cycle 12 [B8   ] : PASS | PC=0000003C Instr=E28E5000 ALUResult=00000024 PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@145ns:(report note): BL cycle 13 [B2   ] : PASS | PC=00000040 Instr=EB000001 ALUResult=0000004C PCSrc='1' RegWrite='1'
+tb_bl.vhd:135:17:@155ns:(report note): BL cycle 14 [B2   ] : PASS | PC=0000004C Instr=E28E5000 ALUResult=00000044 PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@165ns:(report note): BL cycle 15 [setup] : PASS | PC=00000050 Instr=EA000001 ALUResult=0000005C PCSrc='1' RegWrite='0'
+tb_bl.vhd:135:17:@175ns:(report note): BL cycle 16 [B4   ] : PASS | PC=0000005C Instr=EBFFFFFC ALUResult=00000054 PCSrc='1' RegWrite='1'
+tb_bl.vhd:135:17:@185ns:(report note): BL cycle 17 [B4   ] : PASS | PC=00000054 Instr=E28E5000 ALUResult=00000060 PCSrc='0' RegWrite='1'
+tb_bl.vhd:135:17:@195ns:(report note): BL cycle 18 [setup] : PASS | PC=00000058 Instr=EA000002 ALUResult=00000068 PCSrc='1' RegWrite='0'
+tb_bl.vhd:135:17:@205ns:(report note): BL cycle 19 [setup] : PASS | PC=00000068 Instr=EAFFFFFE ALUResult=00000068 PCSrc='1' RegWrite='0'
+tb_bl.vhd:163:9:@205ns:(report note): ----------------------------------
+tb_bl.vhd:168:21:@205ns:(report note): B1 : PASS
+tb_bl.vhd:168:21:@205ns:(report note): B2 : PASS
+tb_bl.vhd:174:21:@205ns:(report note): B3 : PASS (meme BL que B5, a l'adresse 0x20)
+tb_bl.vhd:168:21:@205ns:(report note): B4 : PASS
+tb_bl.vhd:168:21:@205ns:(report note): B5 : PASS
+tb_bl.vhd:170:21:@205ns:(report error): B6 : FAIL
+tb_bl.vhd:168:21:@205ns:(report note): B7 : PASS
+tb_bl.vhd:168:21:@205ns:(report note): B8 : PASS
+tb_bl.vhd:181:9:@205ns:(report note): ----------------------------------
+tb_bl.vhd:182:9:@205ns:(report note): BL : cycles en echec = 1 / 19
+tb_bl.vhd:188:13:@205ns:(report warning): BL : SIMULATION NON CONFORME
+tb_bl.vhd:191:9:@205ns:(report note): ----------------------------------
+simulation stopped @205ns
